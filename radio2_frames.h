@@ -105,14 +105,6 @@ typedef struct _neoRADIO2_deviceSettings {
 	uint32_t channel_3_config;
 } PACKED neoRADIO2_deviceSettings;
 
-typedef union _neoRADIO2AOUT_channelConfig{
-	uint32_t u32;
-	struct {
-		uint16_t initOutputValue;
-		uint8_t initEnabled;
-		uint8_t enabled;
-	} data;
-} neoRADIO2AOUT_channelConfig;
 
 typedef enum _neoRADIO2states {
 	NEORADIO2STATE_RUNNING          =0,
