@@ -16,8 +16,8 @@ typedef enum  _neoRADIO2DIN_InputMode {
 
 typedef enum  _neoRADIO2DOUT_OutputState {
 	neoRADIO2DOUT_SET_HIZ		= 0,
-	neoRADIO2DOUT_SET_LOW_FWD	= 1,
-	neoRADIO2DOUT_SET_HIGH_REV	= 2,
+	neoRADIO2DOUT_SET_LOW_REV	= 1,
+	neoRADIO2DOUT_SET_HIGH_FWD	= 2,
 	neoRADIO2DOUT_SET_BRAKE		= 3,
 } neoRADIO2DOUT_OutputState;
 
@@ -25,7 +25,7 @@ typedef union _neoRADIO2DIN_channelConfig{
 	uint32_t u32;
 	struct {
 		uint8_t prescale;
-		uint8_t tripVolgage;
+		uint8_t tripVoltage;
 		uint8_t mode;
 		unsigned invert:1;
 	} data;
@@ -34,6 +34,7 @@ typedef union _neoRADIO2DIN_channelConfig{
 typedef union _neoRADIO2DOUT_channelConfig{
 	uint32_t u32;
 	struct {
+		uint16_t freq;
 		uint8_t prescale;
 		unsigned pwm:1;
 		unsigned invert:1;
