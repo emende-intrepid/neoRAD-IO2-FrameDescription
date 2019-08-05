@@ -65,7 +65,7 @@ typedef enum _neoRADIO2frame_commands {
 	NEORADIO2_COMMAND_READ_DATA         =   0x04,
 	NEORADIO2_COMMAND_WRITE_SETTINGS    =   0x05,
 	NEORADIO2_COMMAND_READ_SETTINGS     =   0x06,
-	NEORADIO2_COMMAND_DONT_USE1         =   0x07,
+	NEORADIO2_COMMAND_DEFAULT_SETTINGS	=   0x07,
 	NEORADIO2_COMMAND_DONT_USE2         =   0x08,
 	NEORADIO2_COMMAND_TOGGLE_LED        =   0x09,
 	NEORADIO2_COMMAND_READ_PCBSN        =   0x10,
@@ -104,7 +104,6 @@ typedef struct _neoRADIO2_deviceSettings {
 	uint32_t channel_2_config;
 	uint32_t channel_3_config;
 } PACKED neoRADIO2_deviceSettings;
-
 
 typedef enum _neoRADIO2states {
 	NEORADIO2STATE_RUNNING          =0,
