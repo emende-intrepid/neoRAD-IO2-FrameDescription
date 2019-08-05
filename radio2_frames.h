@@ -125,7 +125,7 @@ typedef struct _neoRADIO2frame_calHeader {
 typedef enum _neoRADIO2CalType {
 	NEORADIO2CALTYPE_ENABLED = 0, // Reads raw sensor value with using calibration values. This is the same as reading without a caltype
 	NEORADIO2CALTYPE_NOCAL = 1, // Reads sensor value without calibration applied
-	NEORADIO2CALTYPE_NOCAL_ENHANCED = 2, // Same as ENABLE but with slower sample rate
+	NEORADIO2CALTYPE_NOCAL_ENHANCED = 2, // Same as NOCAL but with slower sample rate
 } neoRADIO2CalType;
 
 typedef enum _neoRADIO2_CANMsgType {
