@@ -175,6 +175,13 @@ typedef struct _neoRADIO2_SettingsPart {
 #define NEORADIO2_DESTINATION_BANK7 0x40
 #define NEORADIO2_DESTINATION_BANK8 0x80
 
+typedef enum _neoRADIO2_LEDMode {
+	LEDMODE_OFF = 0, // Turn the LED off.
+	LEDMODE_ON, // Turn the LED on.
+	LEDMODE_BLINK_ONCE, // Blink the LED quickly, once.
+	LEDMODE_BLINK_DURATION_MS, // Expects two bytes after in LSB, 65535ms max.
+} neoRADIO2_LEDMode;
+
 typedef union _bytesToFloat {
 	float fp;
 	uint8_t b[sizeof(float)];
