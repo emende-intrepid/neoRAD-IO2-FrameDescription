@@ -194,7 +194,10 @@ typedef struct _neoRADIO2_PerfStatistics {
 	uint32_t bytes_tx;
 	uint16_t ignored_rx;
 	uint16_t checksum_error_cnt;
-	uint8_t _reserved[13];
+	uint8_t last_cmd;
+	uint8_t buffer_current;
+	uint8_t buffer_max;
+	uint8_t _reserved[10];
 } neoRADIO2_PerfStatistics;
 
 #ifdef _MSC_VER
