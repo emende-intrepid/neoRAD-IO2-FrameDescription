@@ -78,6 +78,8 @@ typedef enum _neoRADIO2frame_commands {
 	NEORADIO2_COMMAND_READ_CAL_INFO     =   0x25,
 	NEORADIO2_COMMAND_CLEAR_CAL			=	0x26,
 
+	NEORADIO2_COMMAND_PERF_STATS        =   0x30,
+
 	NEORADIO2_COMMAND_BL_WRITEBUFFER    =   0xFA,
 	NEORADIO2_COMMAND_BL_WRITETOFLASH	=   0xFB,
 	NEORADIO2_COMMAND_BL_VERIFY		    =   0xFC,
@@ -95,6 +97,7 @@ typedef enum _neoRADIO2frame_deviceStatus {
 	NEORADIO2_STATUS_CAL_STORE          =   0x07,
 	NEORADIO2_STATUS_CAL_INFO           =   0x08,
 	NEORADIO2_STATUS_CALPOINTS          =   0x09,
+	NEORADIO2_STATUS_PERF_STATS         =   0x10,
 	NEORADIO2_STATUS_NEED_ID			=   0xFF,
 } neoRADIO2frame_deviceStatus;
 
@@ -186,6 +189,23 @@ typedef union _bytesToFloat {
 	float fp;
 	uint8_t b[sizeof(float)];
 } bytesToFloat;
+
+typedef struct _neoRADIO2_PerfStatistics {
+	// How many times did we reset comm due to byte rx timeout
+	uint8_t comm_timeout_reset_cnt;
+	// store the last command and the time it took to run through comm_Process
+	uint16_t cmd_process_time_ms;
+	// Max time seen between all processes
+    uint8_t max_cmd_process_time_ms;
+	uint32_t bytes_rx;
+	uint32_t bytes_tx;
+	uint16_t ignored_rx;
+	uint16_t checksum_error_cnt;
+	uint8_t last_cmd;
+	uint8_t buffer_current;
+	uint8_t buffer_max;
+	uint8_t _reserved[10];
+} neoRADIO2_PerfStatistics;
 
 #ifdef _MSC_VER
 #pragma pack(pop)
