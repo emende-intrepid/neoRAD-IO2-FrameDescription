@@ -205,7 +205,7 @@ typedef struct _neoRADIO2_PerfStatistics {
 	uint8_t buffer_current;
 	uint8_t buffer_max;
 	uint8_t _reserved[10];
-} neoRADIO2_PerfStatistics;
+} PACKED neoRADIO2_PerfStatistics;
 
 #ifdef _MSC_VER
 #pragma pack(pop)
