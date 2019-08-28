@@ -66,8 +66,9 @@ typedef enum _neoRADIO2frame_commands {
 	NEORADIO2_COMMAND_WRITE_SETTINGS    =   0x05,
 	NEORADIO2_COMMAND_READ_SETTINGS     =   0x06,
 	NEORADIO2_COMMAND_DEFAULT_SETTINGS	=   0x07,
-	NEORADIO2_COMMAND_DONT_USE2         =   0x08,
+	NEORADIO2_COMMAND_READ_FAST         =   0x08,
 	NEORADIO2_COMMAND_TOGGLE_LED        =   0x09,
+	NEORADIO2_COMMAND_SET_BAUD			=   0x0A,
 	NEORADIO2_COMMAND_READ_PCBSN        =   0x10,
 
 	NEORADIO2_COMMAND_READ_CAL			=   0x20,
@@ -98,6 +99,7 @@ typedef enum _neoRADIO2frame_deviceStatus {
 	NEORADIO2_STATUS_CAL_INFO           =   0x08,
 	NEORADIO2_STATUS_CALPOINTS          =   0x09,
 	NEORADIO2_STATUS_PERF_STATS         =   0x10,
+	NEORADIO2_STATUS_SETBAUD			=   0x0A,
 	NEORADIO2_STATUS_NEED_ID			=   0xFF,
 } neoRADIO2frame_deviceStatus;
 
@@ -167,7 +169,11 @@ typedef struct _neoRADIO2_settings {
 typedef struct _neoRADIO2_SettingsPart {
 	uint8_t part;
 	uint8_t data[NEORADIO2_SETTINGS_PARTSIZE];
-} neoRADIO2_SettingsPart;
+} PACKED neoRADIO2_SettingsPart;
+
+typedef struct _neoRADIO2frame_SetBaudrate {
+	uint32_t baud;
+} PACKED neoRADIO2frame_SetBaudrate;
 
 #define NEORADIO2_DESTINATION_BANK1 0x01
 #define NEORADIO2_DESTINATION_BANK2 0x02
