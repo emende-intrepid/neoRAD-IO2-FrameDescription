@@ -28,6 +28,7 @@ typedef union _neoRADIO2DIN_channelConfig{
 		uint8_t tripVoltage;
 		uint8_t mode;
 		unsigned invert:1;
+		unsigned enable:1;
 	} data;
 } neoRADIO2DIN_channelConfig;
 
@@ -40,6 +41,7 @@ typedef union _neoRADIO2DOUT_channelConfig{
 		unsigned invert:1;
 		unsigned hbridge:1;
 		unsigned oneshot:1;
+		unsigned enable:1;
 	} data;
 } neoRADIO2DOUT_channelConfig;
 
