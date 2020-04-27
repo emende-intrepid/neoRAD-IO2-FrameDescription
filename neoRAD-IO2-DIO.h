@@ -5,6 +5,13 @@
 extern "C" {
 #endif
 
+#ifdef _MSC_VER
+#pragma pack(push,1)
+#define PACKED
+#else
+#define PACKED __attribute__((packed))
+#endif
+
 typedef enum  _neoRADIO2DIN_InputMode {
 	neoRADIO2DIN_MODE_DISABLE	= 0,
 	neoRADIO2DIN_MODE_DIGITAL	= 1,
@@ -29,8 +36,9 @@ typedef union _neoRADIO2DIN_channelConfig{
 		uint8_t mode;
 		unsigned invert:1;
 		unsigned enable:1;
+		unsigned reserved:6;
 	} data;
-} neoRADIO2DIN_channelConfig;
+} PACKED neoRADIO2DIN_channelConfig;
 
 typedef union _neoRADIO2DOUT_channelConfig{
 	uint32_t u32;
@@ -42,8 +50,16 @@ typedef union _neoRADIO2DOUT_channelConfig{
 		unsigned hbridge:1;
 		unsigned oneshot:1;
 		unsigned enable:1;
+		unsigned reserved:3;
 	} data;
-} neoRADIO2DOUT_channelConfig;
+} PACKED neoRADIO2DOUT_channelConfig;
+
+#ifdef _MSC_VER
+#pragma pack(pop)
+#undef PACKED
+#else
+#undef PACKED
+#endif
 
 #ifdef __cplusplus
 }
