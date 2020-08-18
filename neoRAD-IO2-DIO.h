@@ -69,16 +69,16 @@ typedef union _neoRADIO2DOUT_channelConfig{
 
 typedef union _neoRADIO2DIN_frameHeader {
 	uint8_t bytes[2];
-	union {
+	struct {
 		unsigned mode_ch1:4;
-		unsigned mode_ch2:4;
-		unsigned mode_ch3:4;
-		unsigned store_settings:1;
 		unsigned write_ch1:1;
 		unsigned write_ch2:1;
 		unsigned write_ch3:1;
-	} bits;
-} neoRADIO2DIN_frameHeader;
+		unsigned store_settings:1;
+		unsigned mode_ch2:4;
+		unsigned mode_ch3:4;
+	} PACKED bits;
+} PACKED neoRADIO2DIN_frameHeader;
 
 typedef struct _neoRADIO2DIN_frame
 {
@@ -86,7 +86,7 @@ typedef struct _neoRADIO2DIN_frame
 	uint16_t channel1_data;
 	uint16_t channel2_data;
 	uint16_t channel3_data;
-} neoRADIO2DIN_frame;
+} PACKED neoRADIO2DIN_frame;
 
 #ifdef _MSC_VER
 #pragma pack(pop)
