@@ -75,8 +75,8 @@ typedef union _neoRADIO2DIN_frameHeader {
 		unsigned write_ch2:1;
 		unsigned write_ch3:1;
 		unsigned store_settings:1;
-		unsigned mode_ch2:4;
 		unsigned mode_ch3:4;
+		unsigned mode_ch2:4;
 	} PACKED bits;
 } PACKED neoRADIO2DIN_frameHeader;
 
